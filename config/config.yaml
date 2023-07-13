@@ -11,3 +11,9 @@ data_validation:
   root: artifacts/data_validation
   status_file: artifacts/data_validation/status.txt
   all_required_files: ['train', 'test']
+
+data_transformation:
+  root: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/train/train.jsonl
+  data_path_test: artifacts/data_ingestion/test/test.jsonl
+  tokenizer_name: 'allenai/scibert_scivocab_uncased'

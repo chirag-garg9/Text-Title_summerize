@@ -3,6 +3,8 @@ from src.TextsummerizeProject.constants import *
 from src.TextsummerizeProject.utils.common import read_yaml, Create_directory
 from src.TextsummerizeProject.entities import DataIngestionconfig
 from src.TextsummerizeProject.entities import Datavalidationconfig
+from src.TextsummerizeProject.entities import Datatransformationconfig
+
 
 
 class ConfigrationManager:
@@ -43,3 +45,17 @@ class ConfigrationManager:
         ) 
         
         return data_validation_config
+    
+    def get_data_transformation_config(self) -> Datatransformationconfig:
+        config = self.config.data_transformation
+
+        Create_directory([config.root])
+
+        data_transformation_config = Datatransformationconfig(
+            root_dir = config.root,
+            data_path=config.data_path,
+            data_path_test=config.data_path_test,
+            tokenizer_name=config.tokenizer_name
+        ) 
+        
+        return data_transformation_config
